@@ -162,7 +162,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   httparty
   jbuilder (~> 2.5)
-  jquery-rails
+  jquery-rails (~> 4.2.1)
   listen (~> 3.0.5)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
