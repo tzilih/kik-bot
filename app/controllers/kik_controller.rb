@@ -2,16 +2,20 @@
 class KikController < ApplicationController
 
   def index
-    @quotes = Quote.all
+    @quotes = Quote.get_one
   end
 
-  def new
+  def get_quote
+    quote = Quote.get_one.to_json
+    render json: quote
+    
   end
+
   def webhook
     messages = kik_event_params[:messages]
     message = messages[0] if messages
     user = message[:from] if message
-    response_quote = Quote.write_quote
+    response_quote = Quote.get_one
     KikClient.send_message(response_quote, user) if user
     head 200
   end
