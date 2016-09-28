@@ -1,11 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-quotes = [
+class Quote
+  @@quotes = [
     "You will not be punished for your anger, you will be punished by your anger.",
     "The mind is everything. What you think you become.",
     "Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.",
@@ -18,6 +12,7 @@ quotes = [
     "All that we are is the result of what we have thought."
   ]
 
-quotes.each do |quote|
-  Quote.create(content: quote, author: "Buddah")
+  def self.write_quote
+    @@quotes.sample
+  end
 end

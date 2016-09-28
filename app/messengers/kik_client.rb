@@ -1,5 +1,5 @@
 require 'HTTParty'
-class KikApiController < ApplicationController
+class KikClient
 include HTTParty
 
   base_uri('https://api.kik.com/v1')
@@ -40,29 +40,5 @@ include HTTParty
     payload = {body: body, headers: headers}
     post(endpoint, payload)
   end
-
-  def get_one
-     Quote.write_quote
-  end
-
-  def index
-     Foo.run
-     render text: 'hi'
-  end
-
-
-  # should be the only method
-  def webhook
-    # puts '===', kik_event_params[:kik_api], "---"
-    # KikClient.on_data data
-    KikApiController.send_message("hello", 'tzilih')
-    render status: 200
-  end
-
-  private
-
-  # def kik_event_params
-  #   params.require(:kik_api).permit(:messages)
-  # end
 
 end
