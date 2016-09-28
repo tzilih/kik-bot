@@ -5,7 +5,7 @@ $('document').ready(function () {
     })
   }
   renderQuote = function(quoteData) {
-    $('p').html(quoteData);
+    $('em').html(quoteData);
   }
   $('button').click(getQuote);
 })
