@@ -1,0 +1,1 @@
+KikClient.set_config
