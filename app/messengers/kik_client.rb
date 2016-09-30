@@ -4,19 +4,20 @@ include HTTParty
 
   base_uri('https://api.kik.com/v1')
   basic_auth('tziliquotes.dev', '0207a308-108d-4eaa-b5ea-018e57da0512')
-
+  APP_URL = 'https://6354d34a.ngrok.io'
+   
   def self.get_config
     get('/config')
   end
 
-  def self.set_config(url)
+  def self.set_config
     headers =  
     {
       'Content-Type' => 'application/json', 
       'Accept' => 'application/json'
       }
     body = {
-        webhook: url, 
+        webhook: APP_URL, 
         features: {
             receiveReadReceipts: false, 
             receiveIsTyping: false, 
