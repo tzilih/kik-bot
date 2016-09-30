@@ -13,10 +13,9 @@ class KikController < ApplicationController
 
   def webhook
     messages = kik_event_params[:messages]
-    message = messages[0] if messages
-    user = message[:from] if message
-    response_quote = Quote.get_one
-    KikClient.send_message(response_quote, user) if user
+    messages.each { |message| KikClient.on_message message }
+    #response_quote = Quote.get_one
+    #KikClient.send_message(response_quote, user) if user
     head 200
   end
 
